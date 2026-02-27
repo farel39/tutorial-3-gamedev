@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://3sayjvukgrof"]
+
+[ext_resource type="Script" uid="uid://ccnt6deyykprd" path="res://scenes/Player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://d1ujqe7airurj" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_duck.png" id="2_3li8b"]
+[ext_resource type="Texture2D" uid="uid://cq0ccy1o814d5" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_slide.png" id="3_70d11"]
+[ext_resource type="Texture2D" uid="uid://dg3q4a7elmavw" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_idle.png" id="3_mdl7e"]
+[ext_resource type="Texture2D" uid="uid://3h4607syxcrm" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_jump.png" id="5_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://dmn8133tt40x1" path="res://assets/kenney_platformercharacters/PNG/Adventurer/Poses/adventurer_walk2.png" id="6_khinc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(62, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0vlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3li8b")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_70d11")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mdl7e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cw2d6")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_khinc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
+size = Vector2(62, 83)
+
+[node name="Player" type="CharacterBody2D" unique_id=818728386]
+script = ExtResource("1_v6fml")
+
+[node name="StandShape" type="CollisionShape2D" parent="." unique_id=272248231]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1541431057]
+sprite_frames = SubResource("SpriteFrames_p0vlq")
+animation = &"crouch"
+
+[node name="CrouchShape" type="CollisionShape2D" parent="." unique_id=1552344519]
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_p0vlq")
+disabled = true
